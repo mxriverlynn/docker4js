@@ -16,3 +16,5 @@ There are two parts to this demonstration. The Node.js app and the MongoDB conta
 
 0. `npm install` 
 0. `npm start`
+0. Go to [http://localhost:3000](localhost:3000)
+
