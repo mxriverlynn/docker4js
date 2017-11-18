@@ -1,0 +1,11 @@
+FROM node:8.9
+
+# create working dir
+
+# copy app to dir
+
+# install npm modules
+
+# expose ports
+
+# run the app
