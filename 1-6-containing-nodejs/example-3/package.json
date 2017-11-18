@@ -1,0 +1,14 @@
+{
+  "name": "d4js-1-6",
+  "version": "1.0.0",
+  "description": "Docker for JavaScript Developers, section 1.6",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "chalk": "2.3.0"
+  }
+}

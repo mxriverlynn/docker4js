@@ -63,5 +63,6 @@ typings/
 *.swp
 *.swn
 
-# git
+# misc
 *.orig
+.DS_Store
