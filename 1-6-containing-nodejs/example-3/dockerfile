@@ -1,8 +1,14 @@
 FROM ???
 
+# working directory setup
+
 RUN mkdir -p /var/app
 WORKDIR /var/app
 
+# get the app into the image
 COPY ???
 
+# how to npm install ???
+
+# run the app when the container starts
 CMD ["node", "???"]

@@ -1,8 +1,9 @@
 FROM ???
 
-RUN mkdir -p /var/app
-WORKDIR /var/app
+# create a working directory for the app
 
+# copy the app to the image
 COPY ???
 
+# run the app when a container starts
 CMD ["node", "???"]
