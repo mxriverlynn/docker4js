@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+  h1
+    a(href="/")= title
+
+  h2 Add Knew Poast
+
+  form(action="/posts/new" method="POST")
+    label(for="title") Title
+    input(name="title")
+    hr
+    label(for="content") Content
+    textarea(name="content")
+    hr
+    button(type="submit") save meh!
+    a(href="/") cancel

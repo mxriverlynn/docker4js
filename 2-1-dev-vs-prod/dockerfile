@@ -1,0 +1,20 @@
+FROM node:8.9
+
+# create working dir
+RUN mkdir -p /var/app
+WORKDIR /var/app
+
+# copy app to dir
+COPY src /var/app
+
+# set production environment
+ENV NODE_ENV=production
+
+# install npm modules for production
+RUN npm install --production
+
+# expose ports
+EXPOSE 3000
+
+# run the app
+CMD ["node", "src/bin/www"]

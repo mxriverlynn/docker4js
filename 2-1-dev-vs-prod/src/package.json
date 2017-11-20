@@ -1,0 +1,20 @@
+{
+  "name": "1-4-local-services",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "NODE_PATH=./lib:$NODE_PATH node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "epa": "0.2.1",
+    "express": "~4.13.1",
+    "jade": "~1.11.0",
+    "mongoose": "4.13.2",
+    "morgan": "~1.6.1",
+    "nanit": "0.3.1",
+    "serve-favicon": "~2.3.0"
+  }
+}
