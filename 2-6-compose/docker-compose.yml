@@ -1,0 +1,14 @@
+version: '3'
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: dockerfile
+    ports:
+     - "3000:3000"
+  mongo:
+    container_name: d4js-mongo
+    image: "mongo:3.4"
+networks:
+    d4js-network:
+        driver: bridge
