@@ -6,8 +6,10 @@
     "start": "NODE_PATH=./lib:$NODE_PATH node ./bin/www",
     "docker:build": "docker build -t d4js-2-2 .",
     "docker:build:dev": "docker build -t d4js-2-2:dev -f dev.dockerfile .",
-    "docker:run": "docker run -d -p3000:3000 --name d4js-cache d4js-2-2",
-    "docker:run:dev": "docker run -d -p3000:3000 --name d4js-cache-dev d4js-2-2:dev"
+    "docker:run": "docker run -d -p 3000:3000 --name d4js-2-2 -v $PWD:/var/app -v d4js2-2:/var/app/node_modules d4js-2-2",
+    "docker:run:dev": "docker run -d -p 3000:3000 --name d4js-2-2-dev -v $PWD:/var/app -v d4js2-2:/var/app/node_modules d4js-2-2:dev",
+    "docker:start": "docker start d4js-2-2",
+    "docker:start:dev": "docker start d4js-2-2-dev"
   },
   "dependencies": {
     "body-parser": "~1.13.2",

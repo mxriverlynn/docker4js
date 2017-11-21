@@ -1,4 +1,4 @@
-FROM D4JS-2-2
+FROM d4js-2-2
 
 # set development environment variable
 ENV NODE_ENV=development
@@ -9,7 +9,7 @@ RUN npm install
 # install additional dev tools
 RUN npm install -g nodemon
 
-# expose additional development ports
+# expose additional development ports if needed
 
 # run in development mode
 CMD ["nodemon"]

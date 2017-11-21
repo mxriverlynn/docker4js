@@ -3,7 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "NODE_PATH=./lib node ./web/bin/www"
+    "start": "NODE_PATH=./lib node ./web/bin/www",
+    "docker:build": "docker build -t d4js-2-1 .",
+    "docker:build:dev": "docker build -t d4js-2-1:dev -f dev.dockerfile .",
+    "docker:run": "docker run -d -p 3000:3000 --name d4js-2-1 -v $PWD:/var/app -v d4js2-1:/var/app/node_modules d4js-2-1",
+    "docker:run:dev": "docker run -d -p 3000:3000 --name d4js-2-1-dev -v $PWD:/var/app -v d4js2-1:/var/app/node_modules d4js-2-1:dev",
+    "docker:start": "docker start d4js-2-1",
+    "docker:start:dev": "docker start d4js-2-1-dev"
   },
   "dependencies": {
     "body-parser": "~1.13.2",

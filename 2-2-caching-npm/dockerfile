@@ -8,7 +8,7 @@ WORKDIR /var/app
 COPY src /var/app
 
 # set production environment
-ENV NODE_ENV=production
+ENV NODE_PATH=./lib NODE_ENV=production
 
 # install npm modules for production
 RUN npm install --production
