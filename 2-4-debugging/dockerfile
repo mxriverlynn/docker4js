@@ -8,13 +8,10 @@ WORKDIR /var/app
 COPY src /var/app
 
 # set production environment
-ENV NODE_ENV=production
+ENV NODE_PATH=./lib NODE_ENV=production
 
 # install npm modules for production
 RUN npm install --production
-
-# cache the npm modules and improve performance
-VOLUME /var/app/node_modules
 
 # expose ports
 EXPOSE 3000

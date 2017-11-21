@@ -1,0 +1,26 @@
+{
+  "name": "2-2-caching-npm",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "NODE_PATH=./lib:$NODE_PATH node ./bin/www",
+    "docker:build": "docker build -t d4js-2-2 .",
+    "docker:build:dev": "docker build -t d4js-2-2:dev -f dev.dockerfile .",
+    "docker:run": "docker run -d -p 3000:3000 --name d4js-2-2 -v $PWD:/var/app -v d4js2-2:/var/app/node_modules d4js-2-2",
+    "docker:run:dev": "docker run -d -p 3000:3000 --name d4js-2-2-dev -v $PWD:/var/app -v d4js2-2:/var/app/node_modules d4js-2-2:dev",
+    "docker:start": "docker start d4js-2-2",
+    "docker:start:dev": "docker start d4js-2-2-dev"
+  },
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "epa": "0.2.1",
+    "express": "~4.13.1",
+    "jade": "~1.11.0",
+    "mongoose": "4.13.2",
+    "morgan": "~1.6.1",
+    "nanit": "0.3.1",
+    "serve-favicon": "~2.3.0"
+  }
+}
