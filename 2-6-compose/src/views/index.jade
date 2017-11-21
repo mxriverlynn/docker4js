@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  fieldset
+    legend EPIC BloRG POASTS
+
+    a(href="/posts/new") + Add Knew Poast
+    ul
+      - each post in posts
+        li 
+          a(href=`/posts/${post.id}`)
+            = post.title
