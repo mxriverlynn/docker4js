@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "NODE_PATH=./lib:$NODE_PATH node ./bin/www"
+    "start": "NODE_PATH=./lib:$NODE_PATH node ./web/bin/www"
   },
   "dependencies": {
     "body-parser": "~1.13.2",

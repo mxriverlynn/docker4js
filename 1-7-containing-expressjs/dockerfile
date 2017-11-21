@@ -8,4 +8,6 @@ FROM node:8.9
 
 # expose ports
 
+# set environment variables
+
 # run the app
