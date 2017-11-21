@@ -1,6 +1,7 @@
-FROM alpine:3.6
+# build from a base image
 
-COPY script.sh /script.sh
-RUN chmod +x /script.sh
+# copy the script to the image
 
-ENTRYPOINT ["/script.sh"]
+# set it as executable
+
+# create an entrypoint to run it
