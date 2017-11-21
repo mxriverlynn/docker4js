@@ -5,10 +5,10 @@ RUN mkdir -p /var/app
 WORKDIR /var/app
 
 # copy app to dir
-COPY src /var/app
+COPY . /var/app
 
 # set production environment
-ENV NODE_ENV=production
+ENV NODE_ENV=production NODE_PATH=./lib
 
 # install npm modules for production
 RUN npm install --production
@@ -20,4 +20,4 @@ VOLUME /var/app/node_modules
 EXPOSE 3000
 
 # run the app
-CMD ["node", "src/bin/www"]
+CMD ["node", "web/bin/www"]

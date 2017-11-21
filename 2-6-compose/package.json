@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "NODE_PATH=./lib:$NODE_PATH node ./bin/www",
+    "start": "node ./web/bin/www",
     "docker:build": "docker build -t d4js-2-4 .",
     "docker:build:dev": "docker build -t d4js-2-4:dev -f dev.dockerfile .",
     "docker:run": "docker run -d -p 3000:3000 --name d4js-2-4 -v $PWD:/var/app -v d4js2-4:/var/app/node_modules d4js-2-4",
