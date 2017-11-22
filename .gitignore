@@ -62,6 +62,7 @@ typings/
 *.sw0
 *.swp
 *.swn
+*.swm
 
 # misc
 *.orig
