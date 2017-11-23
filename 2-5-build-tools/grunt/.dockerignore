@@ -68,3 +68,4 @@ typings/
 *.orig
 .DS_Store
 build
+client-app

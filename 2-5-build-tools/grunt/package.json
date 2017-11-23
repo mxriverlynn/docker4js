@@ -22,5 +22,10 @@
     "morgan": "~1.6.1",
     "nanit": "0.3.1",
     "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "grunt": "1.0.1",
+    "grunt-contrib-jshint": "1.1.0",
+    "grunt-contrib-watch": "1.0.0"
   }
 }
