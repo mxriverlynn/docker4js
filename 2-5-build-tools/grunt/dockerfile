@@ -4,17 +4,19 @@ FROM node:8.9
 RUN mkdir -p /var/app
 WORKDIR /var/app
 
+# install npm modules for production
+COPY ./package.json /var/app
+RUN npm install
+RUN npm install -g grunt-cli nodemon
+
 # copy app to dir
 COPY . /var/app
 
 # set production environment
-ENV NODE_PATH=./lib NODE_ENV=production
-
-# install npm modules for production
-RUN npm install --production
+ENV NODE_PATH=./lib NODE_ENV=development
 
 # expose ports
-EXPOSE 3000
+EXPOSE 3000 35729
 
 # run the app
-CMD ["node", "src/bin/www"]
+CMD ["nodemon", "web/bin/www"]

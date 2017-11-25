@@ -1,5 +1,5 @@
-import SayCoolStuff from "./sayCoolStuff";
+import sayCoolStuff from "./sayCoolStuff";
 
-var result = SayCoolStuff("Hello", "world", "from", "a", "docker", "container.");
+var result = sayCoolStuff("Hello", "world", "from", "a", "docker", "container.");
 
 console.log(result);

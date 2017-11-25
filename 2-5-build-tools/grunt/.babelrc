@@ -1,0 +1,4 @@
+{
+  "plugins": ["transform-es2015-modules-commonjs"],
+  "presets": ["es2015", "es2016", "es2017"]
+}

@@ -9,8 +9,7 @@ module.exports = function(grunt){
     },
 
     clean: {
-      entries: ["client-app/build/entries", "web/public/client-app/entries.js"],
-      common: ["client-app/build/common"]
+      entries: ["client-app/build/", "web/public/client-app/"]
     },
 
     babel: {
@@ -30,15 +29,12 @@ module.exports = function(grunt){
     browserify: {
       options:{
         browserifyOptions: {
-          debug: true,
-          paths: [
-            "client-app/build/common"
-          ]
+          debug: true
         }
       },
       entries: {
         files: {
-          "web/public/client-app/entries.js": "client-app/build/entries/index.js"
+          "web/public/client-app/index.js": "client-app/build/index.js"
         },
       }
     },
@@ -46,7 +42,10 @@ module.exports = function(grunt){
     watch: {
       clientApp: {
         files: ["client-app/src/**/*.js"],
-        tasks: ["clean", "jshint:clientApp", "babel", "browserify"]
+        tasks: ["clean", "jshint:clientApp", "babel", "browserify"],
+        options: {
+          liveReload: true
+        }
       }
     }
   });

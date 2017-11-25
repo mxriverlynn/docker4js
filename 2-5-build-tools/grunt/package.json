@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "start": "NODE_PATH=./lib:$NODE_PATH node ./bin/www",
-    "docker:build": "docker build -t d4js-2-5 .",
-    "docker:build:dev": "docker build -t d4js-2-5:dev -f dev.dockerfile .",
-    "docker:run": "docker run -d -p 3000:3000 --name d4js-2-5 -v $PWD:/var/app -v d4js2-5:/var/app/node_modules d4js-2-5",
-    "docker:run:dev": "docker run -d -p 3000:3000 --name d4js-2-5-dev -v $PWD:/var/app -v d4js2-5:/var/app/node_modules d4js-2-5:dev",
-    "docker:start": "docker start d4js-2-5",
-    "docker:start:dev": "docker start d4js-2-5-dev"
+    "docker:build": "npm run docker:stop; npm run docker:rm; docker build -t d4js-2-5:grunt .",
+    "docker:run": "npm run docker:stop; npm run docker:rm; docker run -d -p 3000:3000 -p 35729:35729 --link mongo --name d4js-2-5-grunt -v $PWD:/var/app -v d4js2-5-grunt:/var/app/node_modules d4js-2-5:grunt",
+    "docker:start": "docker start d4js-2-5-grunt; exit 0",
+    "docker:stop": "docker stop d4js-2-5-grunt; exit 0",
+    "docker:rm": "docker rm d4js-2-5-grunt; exit 0",
+    "docker:clean": "npm run docker:stop; npm run docker:rm; docker rmi d4js-2-5:grunt",
+    "docker:logs": "docker logs d4js-2-5-grunt",
+    "docker:shell": "docker exec -it d4js-2-5-grunt /bin/bash; exit 0"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
@@ -24,7 +26,15 @@
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2016": "^6.24.1",
+    "babel-preset-es2017": "^6.24.1",
     "grunt": "1.0.1",
+    "grunt-babel": "^7.0.0",
+    "grunt-browserify": "^5.2.0",
+    "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-jshint": "1.1.0",
     "grunt-contrib-watch": "1.0.0"
   }

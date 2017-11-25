@@ -1,5 +1,5 @@
-const SayCoolStuff(...stuff){
+function sayCoolStuff(...stuff) {
   return `You said ${stuff.join(" ")}`;
 }
 
-export default SayCoolStuff;
+export default sayCoolStuff;
