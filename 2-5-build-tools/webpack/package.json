@@ -26,8 +26,14 @@
     "test:watch": "jest --watch",
     "open:cover": "npm run test:cover && opn ./coverage/lcov-report/index.html",
     "analyze-bundle": "babel-node ./tools/analyzeBundle.js",
-    "docker:build": "docker build -t d4js-2-5 .",
-    "docker:run": "docker stop d4js-2-5-prod; docker rm d4js-2-5-prod; docker run -d -p 3000:3000 -v d4js-2-5:/var/app/node_modules --name d4js-2-5-prod d4js-2-5"
+    "docker:build": "npm run docker:stop; npm run docker:rm; docker build -t d4js-2-5:webpack .",
+    "docker:run": "npm run docker:stop; npm run docker:rm; docker run -it -p 3000:3000 -p 35729:35729 --name d4js-2-5-webpack -v $PWD:/var/app -v d4js2-5-webpack:/var/app/node_modules d4js-2-5:webpack npm start; exit 0",
+    "docker:start": "docker start d4js-2-5-webpack; exit 0",
+    "docker:stop": "docker stop d4js-2-5-webpack; exit 0",
+    "docker:rm": "docker rm d4js-2-5-webpack; exit 0",
+    "docker:clean": "npm run docker:stop; npm run docker:rm; docker rmi d4js-2-5:webpack",
+    "docker:logs": "docker logs d4js-2-5-webpack",
+    "docker:shell": "docker exec -it d4js-2-5-webpack /bin/bash; exit 0"
   },
   "author": "",
   "license": "MIT",
