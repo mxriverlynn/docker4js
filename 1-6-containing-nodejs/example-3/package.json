@@ -4,7 +4,7 @@
   "description": "Docker for JavaScript Developers, section 1.6",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js"
   },
   "author": "",
   "license": "MIT",
