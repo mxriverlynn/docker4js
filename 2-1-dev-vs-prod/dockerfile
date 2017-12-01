@@ -1,7 +1,6 @@
 FROM node:8.9
 
 # create working dir
-RUN mkdir -p /var/app
 WORKDIR /var/app
 
 # copy app to dir
@@ -15,6 +14,10 @@ RUN npm install --production
 
 # expose ports
 EXPOSE 3000
+
+# secure the image with a lower privilege user
+RUN useradd --no-log-init -r app
+USER app
 
 # run the app
 CMD ["node", "web/bin/www"]
