@@ -1,23 +1,5 @@
 version: '3'
 services:
   web:
-    container_name: d4js-2-6-web
-    build:
-      context: ./
-      dockerfile: dockerfile
-    ports:
-      - "3000:3000"
-    depends_on: 
-      - mongo
-    networks:
-      - d4js-network
-
   mongo:
-    container_name: d4js-2-6-mongo
-    image: "mongo:3.4"
-    networks:
-      - d4js-network
-
 networks:
-  d4js-network:
-    driver: bridge
