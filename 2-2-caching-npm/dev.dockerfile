@@ -1,4 +1,4 @@
-FROM d4js-2-1
+FROM d4js-2-2
 
 # set development environment variable
 ENV NODE_ENV=development
