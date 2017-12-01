@@ -3,17 +3,19 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "NODE_PATH=./lib:$NODE_PATH node ./bin/www",
+    "start": "NODE_PATH=./lib:$NODE_PATH node ./web/bin/www",
     "docker:build": "docker build -t d4js-2-6 .",
     "docker:build:dev": "docker build -t d4js-2-6:dev -f dev.dockerfile .",
-    "docker:run": "npm run docker:stop && npm run docker:rmc && docker run -d -p 3000:3000 --name d4js-2-6 -v d4js2-3:/var/app/node_modules d4js-2-3",
-    "docker:run:dev": "npm run docker:stop:dev && npm run docker:rmc:dev && docker run -d -p 3000:3000 --name d4js-2-6-dev -v $PWD:/var/app -v d4js2-3-dev:/var/app/node_modules d4js-2-3:dev",
+    "docker:run": "npm run docker:stop && npm run docker:rmc && docker run -d -p 3000:3000 --name d4js-2-6 -v d4js2-6:/var/app/node_modules d4js-2-6",
+    "docker:run:dev": "npm run docker:stop:dev && npm run docker:rmc:dev && docker run -d -p 3000:3000 --name d4js-2-6-dev -v $PWD:/var/app -v d4js2-6-dev:/var/app/node_modules d4js-2-6:dev",
     "docker:start": "docker start d4js-2-6",
     "docker:start:dev": "docker start d4js-2-6-dev",
     "docker:stop": "docker stop d4js-2-6; exit 0",
     "docker:stop:dev": "docker stop d4js-2-6-dev; exit 0",
     "docker:rmc": "docker rm d4js-2-6; exit 0",
-    "docker:rmc:dev": "docker rm d4js-2-6-dev; exit 0"
+    "docker:rmc:dev": "docker rm d4js-2-6-dev; exit 0",
+    "docker:logs:dev": "docker logs d4js-2-6-dev",
+    "docker:shell:dev": "docker exec -it d4js-2-6-dev /bin/bash"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
