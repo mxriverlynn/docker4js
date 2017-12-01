@@ -1,7 +1,10 @@
-FROM d4js-2-3
+FROM d4js-2-1
 
 # set development environment variable
 ENV NODE_ENV=development
+
+# run as privileged user so we can install stuff
+USER root
 
 # install all of package.json, not just production
 RUN npm install
@@ -9,7 +12,11 @@ RUN npm install
 # install additional dev tools
 RUN npm install -g nodemon
 
-# expose additional development ports if needed
+# run as non-privileged user again
+USER app
+
+# expose additional development ports
+EXPOSE 35729 5858
 
 # run in development mode
 CMD ["nodemon"]
