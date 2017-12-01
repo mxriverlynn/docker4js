@@ -3,19 +3,22 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "NODE_PATH=./lib:$NODE_PATH node ./bin/www",
+    "start": "NODE_PATH=./lib:$NODE_PATH node ./web/bin/www",
     "docker:build": "docker build -t d4js-2-3 .",
     "docker:build:dev": "docker build -t d4js-2-3:dev -f dev.dockerfile .",
-    "docker:run": "npm run docker:stop && npm run docker:rmc && docker run -d -p 3000:3000 --name d4js-2-3 -v d4js2-3:/var/app/node_modules d4js-2-3",
-    "docker:run:dev": "npm run docker:stop:dev && npm run docker:rmc:dev && docker run -d -p 3000:3000 --name d4js-2-3-dev -v d4js2-3-dev:/var/app/node_modules d4js-2-3:dev",
+    "docker:run": "npm run docker:stop && npm run docker:rmc && docker run -d -p 3000:3000 --name d4js-2-3 d4js-2-3",
+    "docker:run:dev": "npm run docker:stop:dev && npm run docker:rmc:dev && docker run -d -p 3000:3000 --name d4js-2-3-dev --link mongo-apple d4js-2-3:dev",
     "docker:start": "docker start d4js-2-3",
     "docker:start:dev": "docker start d4js-2-3-dev",
     "docker:stop": "docker stop d4js-2-3; exit 0",
     "docker:stop:dev": "docker stop d4js-2-3-dev; exit 0",
     "docker:rmc": "docker rm d4js-2-3; exit 0",
-    "docker:rmc:dev": "docker rm d4js-2-3-dev; exit 0"
+    "docker:rmc:dev": "docker rm d4js-2-3-dev; exit 0",
+    "docker:logs:dev": "docker logs d4js-2-3-dev",
+    "docker:shell:dev": "docker exec -it --user root d4js-2-3-dev /bin/bash; exit 0"
   },
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "body-parser": "~1.13.2",
     "cookie-parser": "~1.3.5",
     "debug": "~2.2.0",
