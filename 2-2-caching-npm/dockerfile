@@ -7,14 +7,18 @@ WORKDIR /var/app
 # copy app to dir
 COPY . /var/app
 
-# set production environment
+# set environment variables
 ENV NODE_PATH=./lib NODE_ENV=production
 
-# install npm modules for production
+# install npm modules
 RUN npm install --production
 
 # expose ports
 EXPOSE 3000
 
+# secure the image with a lower privilege user
+RUN useradd --no-log-init -r app
+USER app
+
 # run the app
-CMD ["node", "src/bin/www"]
+CMD ["node", "web/bin/www"]
