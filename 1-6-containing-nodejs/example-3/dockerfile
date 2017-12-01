@@ -1,8 +1,6 @@
 FROM ???
 
 # working directory setup
-
-RUN mkdir -p /var/app
 WORKDIR /var/app
 
 # get the app into the image
