@@ -15,6 +15,9 @@ RUN npm install -g nodemon
 # run as non-privileged user again
 USER app
 
+# add a data volume to cache modules
+VOLUME /var/app/node_modules
+
 # expose additional development ports
 EXPOSE 35729 5858
 
