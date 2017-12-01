@@ -5,15 +5,10 @@
   "scripts": {
     "start": "NODE_PATH=./lib node ./web/bin/www",
     "docker:build": "docker build -t d4js-2-1 .",
-    "docker:build:dev": "docker build -t d4js-2-1:dev -f dev.dockerfile .",
     "docker:run": "npm run docker:stop && npm run docker:rmc && docker run -d -p 3000:3000 --name d4js-2-1 --link mongo-apple d4js-2-1",
-    "docker:run:dev": "npm run docker:stop:dev && npm run docker:rmc:dev && docker run -d -p 3000:3000 --name d4js-2-1-dev --link mongo-apple d4js-2-1:dev",
     "docker:start": "docker start d4js-2-1",
-    "docker:start:dev": "docker start d4js-2-1-dev",
     "docker:stop": "docker stop d4js-2-1; exit 0",
-    "docker:stop:dev": "docker stop d4js-2-1-dev; exit 0",
     "docker:rmc": "docker rm d4js-2-1; exit 0",
-    "docker:rmc:dev": "docker rm d4js-2-1-dev; exit 0"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
